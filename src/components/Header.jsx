@@ -82,7 +82,7 @@ const Header = () => {
                 colorScheme={'orange'}
                 variant={'outline'}
               >
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/register">Sign Up</Link>
               </Button>
             </HStack>
           </DrawerBody>
