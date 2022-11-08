@@ -6,6 +6,7 @@ import Home from './components/Home';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Videos from './components/Videos';
+import VideosPage from './components/VideosPage';
 
 function App() {
   const [movies, setMovies] = useState([
@@ -17,7 +18,7 @@ function App() {
       description:
         'Les affrontements dans le monde des ninjas appartiennent désormais au passé. Le village de Konoha est entré dans une ère de paix. Boruto, le fils du 7ème Hokage, vit très mal la popularité de son éminent paternel, Naruto, qui lui fait de lombre.',
       rating: 5,
-      trailer: 'https://www.youtube.com/embed/nQeIObeB--8',
+      trailer: 'https://www.youtube.com/embed/nQeIObeB--8?autoplay=1',
     },
     {
       id: 2,
@@ -28,7 +29,7 @@ function App() {
       description:
         'Death Note (デスノート, Desu Nōto) is a manga series created by writer Tsugumi Ohba and illustrator Takeshi Obata. The series centers around a high school student who discovers a supernatural notebook that allows him to kill anyone by writing the victims name while picturing their face.',
       rating: 4,
-      trailer: 'https://www.youtube.com/embed/NlJZ-YgAt-c',
+      trailer: 'https://www.youtube.com/embed/NlJZ-YgAt-c?autoplay=1',
     },
     {
       id: 3,
@@ -121,6 +122,7 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/" element={<Home movies={movies} />} />
+        <Route path="/videos" element={<VideosPage movies={movies} />} />
         <Route path="/videos/:id" element={<Videos movies={movies} />} />
       </Routes>
       {/* <Footer /> */}

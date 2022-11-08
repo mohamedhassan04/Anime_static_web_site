@@ -10,9 +10,11 @@ import {
   useDisclosure,
   VStack,
   HStack,
+  Container,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { BiMenuAltLeft } from 'react-icons/bi';
+import logo from '../assets/logo002.png';
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -35,9 +37,11 @@ const Header = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>ANIME HUB</DrawerHeader>
+          <DrawerHeader>
+            <img src={logo} alt="logo" />
+          </DrawerHeader>
           <DrawerBody>
-            <VStack alignItems={'flex-start'}>
+            <VStack alignItems={'center'}>
               <Button
                 onClick={onClose}
                 variant={'ghost'}
