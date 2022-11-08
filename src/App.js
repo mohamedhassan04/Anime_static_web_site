@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
+import ImageAccount from './components/ImageAccount';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Videos from './components/Videos';
@@ -118,6 +119,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <ImageAccount />
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
