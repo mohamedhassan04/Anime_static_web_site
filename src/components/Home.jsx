@@ -7,22 +7,22 @@ import img2 from '../assets/img002.jpg';
 import img3 from '../assets/img003.jpg';
 import img4 from '../assets/img004.jpg';
 import img5 from '../assets/img005.jpg';
-import CardFilm from './CardFilm';
-import '../styles/home.css';
+import CarouselGallery from './CarouselGallery';
 
 const headingOptions = {
   pos: 'absolute',
-  left: '25%',
+  left: '50%',
   top: '80%',
-  transform: 'translate(-25%,-80%)',
+  transform: 'translate(-50%,-50%)',
   textTranform: 'uppercase',
   p: '4',
+  borderRadius: '10',
 };
-const Home = () => {
+const Home = ({ movies }) => {
   return (
     <Box>
       <MyCarousel />
-      <Container maxW={'container.xl'} minH={'100vh'} p="16">
+      <Container maxW={'100%'} minH={'100vh'} p="16">
         <Heading
           textTransform={'uppercase'}
           py="2"
@@ -31,14 +31,25 @@ const Home = () => {
         >
           Last Anime
         </Heading>
-        <div className="card-film">
-          <CardFilm />
-          <CardFilm />
-          <CardFilm />
-          <CardFilm />
-          <CardFilm />
-          <CardFilm />
-        </div>
+        <CarouselGallery movies={movies} />
+        <Heading
+          textTransform={'uppercase'}
+          py="2"
+          w={'fit-content'}
+          borderBottom={'2px solid'}
+        >
+          Mongas Anime
+        </Heading>
+        <CarouselGallery movies={movies} />
+        <Heading
+          textTransform={'uppercase'}
+          py="2"
+          w={'fit-content'}
+          borderBottom={'2px solid'}
+        >
+          Sport Anime
+        </Heading>
+        <CarouselGallery movies={movies} />
       </Container>
     </Box>
   );
@@ -47,7 +58,7 @@ const MyCarousel = () => (
   <Carousel
     autoPlay
     infiniteLoop
-    interval={5000}
+    interval={3000}
     showStatus={false}
     showThumbs={false}
     showArrows={false}

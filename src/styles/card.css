@@ -1,99 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-.card {
-  width: 300px;
-  height: 450px;
-  background: #000;
-  box-shadow: 17px -1px 91px -19px rgba(0, 0, 0, 0.75);
-  margin-top: 2%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card .poster:before {
+.card {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin: 30px;
+  position: relative;
+  background-size: cover;
+  background-position: top;
+  transition: all 0.5s linear;
+  overflow: hidden;
+  border-radius: 3%;
+}
+
+.card > img {
+  width: 100%;
+  height: 20vmax;
+}
+
+.card-content {
+  width: 100%;
+  padding: 15px 20px;
+  background-image: radial-gradient(
+    circle 321px at 8.3% 75.7%,
+    rgba(209, 247, 241, 1) 0%,
+    rgba(249, 213, 213, 1) 81%
+  );
+  opacity: 90%;
+  text-align: center;
   position: absolute;
   bottom: 0;
   left: 0;
+  transform: translateY(100%);
+  transition: all 0.5s linear;
+}
+
+.card-content h2 {
+  margin-bottom: 5px;
+  color: rgb(88, 88, 88);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-content h5 {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(0deg, #000 50%, transparent);
-  transition: 0.5s;
-}
-
-.card .poster {
-  position: relative;
-  overflow: hidden;
-}
-
-.card .poster img {
-  width: 100%;
-}
-
-.details {
-  position: relative;
-  padding: 20px;
-  width: 100%;
-  height: 70%;
-  box-sizing: border-box;
-  transition: 0.5s;
-  z-index: 2;
-  margin-top: -103%;
-}
-
-.details h2 {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.details h2 span {
-  font-size: 14px;
-  color: #ff9800;
-}
-
-.rating {
-  position: relative;
   display: flex;
-  justify-content: space-between;
-  width: 20%;
-  padding: 5px 0;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: rgb(16, 16, 16);
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.rating .fa {
-  color: #f7f406;
-  font-size: 17px;
+.card-content h5 svg {
+  font-size: 25px;
+  color: gold;
 }
 
-.rating span {
-  color: #fff;
-  margin-top: -4px;
+.card-content p {
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center !important;
+  text-transform: capitalize;
 }
 
-.tags {
-  position: relative;
-  margin-top: 5px;
+.card-content .btn {
+  color: #be0027;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
 }
 
-.tags span {
-  padding: 2px 5px;
-  margin-right: 2px;
-  color: #fff;
-  display: inline-block;
-  border-radius: 4px;
+.card:hover {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.tags span.mangas {
-  background: #7206f7;
-}
-
-.tags span.adventure {
-  background: #f70661;
-}
-
-.info {
-  color: #fff;
-}
-
-.info p {
-  margin: 15px 0 10px;
+.card:hover .card-content {
+  transform: translateY(0);
 }
