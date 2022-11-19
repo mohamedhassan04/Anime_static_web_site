@@ -1,5 +1,6 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //Register User
 exports.registerUser = async (req, res, next) => {
@@ -22,12 +23,19 @@ exports.registerUser = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, genSalt);
     newUser.password = hashedPassword;
 
-    await newUser.save();
-
-    res.send({
-      newUser,
-      message: "user is saved with success",
+    //generate a token
+    const newUserToken = await newUser.save();
+    const payload = {
+      _id: newUserToken._id,
+      name: newUserToken.name,
+    };
+    const token = jwt.sign(payload, process.env.SecretOrKey, {
+      expiresIn: 10000,
     });
+    //save the user
+    res
+      .status(200)
+      .send({ newUser, msg: "user is saved", token: `Bearer ${token}` });
   } catch (error) {
     res.send("can not save this user");
     console.log(error);

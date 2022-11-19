@@ -8,21 +8,19 @@ const CardFilm = ({ movie, id }) => {
     <div className="card">
       <img src={movie?.posterurl} alt="posterimage" />
       <div className="card-content">
-        <Flex>
-          <h2>{movie?.name}</h2>
-          <Box ml="3">
-            {movie.year >= 2022 ? (
-              <Badge
-                ml="1"
-                colorScheme="white"
-                bgColor={'green'}
-                borderRadius={'7'}
-              >
-                New
-              </Badge>
-            ) : null}
-          </Box>
-        </Flex>
+        <h2>{movie?.name}</h2>
+        <Box ml="3">
+          {movie.year >= 2022 ? (
+            <Badge
+              ml="1"
+              colorScheme="white"
+              bgColor={'green'}
+              borderRadius={'7'}
+            >
+              New
+            </Badge>
+          ) : null}
+        </Box>
 
         <h5>
           <AiFillStar />

@@ -7,13 +7,27 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { userRegister } from '../redux/userSlice';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  /**State for register user */
+  const [register, setregister] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  /** Function to register user with redux */
+  const handleRegister = e => {
+    e.preventDefault();
+    dispatch(userRegister(register));
+  };
   return (
     <Container>
-      <form>
+      <form onSubmit={handleRegister}>
         <VStack
           alignItems={'stretch'}
           spacing={8}
@@ -28,18 +42,23 @@ const SignUp = () => {
             type={'text'}
             required
             focusBorderColor={'orange.500'}
+            onChange={e => setregister({ ...register, name: e.target.value })}
           />
           <Input
             placeholder={'Enter your email'}
             type={'email'}
             required
             focusBorderColor={'orange.500'}
+            onChange={e => setregister({ ...register, email: e.target.value })}
           />
           <Input
             placeholder={'Enter your password'}
             type={'password'}
             required
             focusBorderColor={'orange.500'}
+            onChange={e =>
+              setregister({ ...register, password: e.target.value })
+            }
           />
           <Button colorScheme={'orange'} type={'submit'}>
             Sign Up
